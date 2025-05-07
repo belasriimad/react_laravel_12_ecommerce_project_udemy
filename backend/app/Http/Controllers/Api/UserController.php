@@ -68,8 +68,8 @@ class UserController extends Controller
 
         if($request->has('profile_image')) {
             //check if the old image exists and remove it
-            if(File::exists(asset($request->user()->profile_image))) {
-                File::delete(asset($request->user()->profile_image));
+            if(File::exists(public_path($request->user()->profile_image))) {
+                File::delete(public_path($request->user()->profile_image));
             }
             //get and store the new image file
             $file = $request->file('profile_image');
